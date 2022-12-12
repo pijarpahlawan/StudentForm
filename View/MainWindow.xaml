@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StudentForm"
         xmlns:viewModel="clr-namespace:StudentForm.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MinWidth="500" MinHeight="340">
+        Title="Formulir Mahasiswa" Height="450" Width="800" MinWidth="500" MinHeight="340">
     <Window.DataContext>
         <viewModel:StudentViewModel/>
     </Window.DataContext>
