@@ -1,0 +1,100 @@
+﻿<Window x:Class="StudentForm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentForm"
+        xmlns:viewModel="clr-namespace:StudentForm.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" MinWidth="500" MinHeight="340">
+    <Window.DataContext>
+        <viewModel:StudentViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="135"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <!-- Begin form area -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Form Mahasiswa" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+            <!-- Begin label textbox -->
+            <Label Grid.Row="0" Grid.Column="0" Content="Name" Margin="5,20,0,0"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Age" Margin="5,0,0,0"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Address" Margin="5,0,0,0"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Contact" Margin="5,0,0,0"/>
+            <!-- End label textbox -->
+            <!-- Begin textbox -->
+            <TextBox Grid.Row="0" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,20,0,5" Text="{Binding StudentRecord.Name}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,3,250,5" Text="{Binding StudentRecord.Age}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,3,0,5" Text="{Binding StudentRecord.Address}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,3,0,5" Text="{Binding StudentRecord.Contact}"/>
+            <!-- End textbox -->
+        </Grid>
+        <!-- End form area -->
+        <!-- Begin button area -->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Content="Save" Margin="5,5,5,5" Command="{Binding SaveCommand}"/>
+            <Button Grid.Column="2" Content="Cancle" Margin="5,5,5,5" Command="{Binding CancleCommand}"/>
+        </Grid>
+        <!-- End button area -->
+        <!-- Begin datagrid area -->
+        <DataGrid Grid.Row="3" Grid.Column="1" AutoGenerateColumns="False" ItemsSource="{Binding StudentRecords}" CanUserAddRows="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Age" Width="*" Binding="{Binding Age}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Address" Width="*" Binding="{Binding Address}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Contact" Width="*" Binding="{Binding Contact}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!-- End datagrid area -->
+    </Grid>
+</Window>
