@@ -44,10 +44,10 @@
             <Label Grid.Row="3" Grid.Column="0" Content="Contact" Margin="5,0,0,0"/>
             <!-- End label textbox -->
             <!-- Begin textbox -->
-            <TextBox Grid.Row="0" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,20,0,5" Text="{Binding StudentRecord.Name}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,3,250,5" Text="{Binding StudentRecord.Age}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,3,0,5" Text="{Binding StudentRecord.Address}"/>
-            <TextBox Grid.Row="3" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,3,0,5" Text="{Binding StudentRecord.Contact}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,20,0,5" Text="{Binding StudentRecord.Name, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,3,250,5" Text="{Binding StudentRecord.Age, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,3,0,5" Text="{Binding StudentRecord.Address, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5,3,0,5" Text="{Binding StudentRecord.Contact, UpdateSourceTrigger=PropertyChanged}"/>
             <!-- End textbox -->
         </Grid>
         <!-- End form area -->

@@ -32,7 +32,7 @@ namespace StudentForm.ViewModel
             {
                 if (_saveCommand == null)
                 {
-                    _saveCommand = new ViewModelCommand(param => SaveData());
+                    _saveCommand = new ViewModelCommand(param => SaveData(), param => CanSaveData());
                 }
                 return _saveCommand;
             }
@@ -66,6 +66,15 @@ namespace StudentForm.ViewModel
             });
             GetAll();
             ResetData();
+        }
+        public bool CanSaveData()
+        {
+            bool valid =
+                !string.IsNullOrWhiteSpace(StudentRecord.Name) &&
+                StudentRecord.Age != null &&
+                !string.IsNullOrWhiteSpace(StudentRecord.Address) &&
+                !string.IsNullOrWhiteSpace(StudentRecord.Contact);
+            return valid;
         }
         public void ResetData()
         {
